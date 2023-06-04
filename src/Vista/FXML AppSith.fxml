@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controller.FXMLAppSithController">
+   <children>
+      <Pane fx:id="pLord" layoutX="369.0" layoutY="14.0" prefHeight="182.0" prefWidth="252.0">
+         <children>
+            <Text layoutX="23.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LordSith" />
+            <CheckBox fx:id="chbMaestro" layoutX="23.0" layoutY="40.0" mnemonicParsing="false" onAction="#MaestroOnAction" text="MaestroLord" />
+            <CheckBox fx:id="chbAlpha" layoutX="23.0" layoutY="132.0" mnemonicParsing="false" text="AlphaLord" />
+            <TextField fx:id="tfAprendiz" layoutX="23.0" layoutY="76.0" promptText="Aprendiz" />
+         </children>
+      </Pane>
+      <Pane fx:id="pAprendiz" layoutX="634.0" layoutY="14.0" prefHeight="182.0" prefWidth="252.0">
+         <children>
+            <Text layoutX="9.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AprendizSith" />
+            <TextField fx:id="tfMaestro" layoutX="14.0" layoutY="76.0" promptText="Maestro" />
+         </children>
+      </Pane>
+      <TextField fx:id="tfNombre" layoutX="176.0" layoutY="37.0" promptText="nombre" />
+      <TextField fx:id="tfEdad" layoutX="176.0" layoutY="71.0" promptText="edad" />
+      <TextField fx:id="tfNivelMidi" layoutX="176.0" layoutY="108.0" promptText="nivel Midiclorianos" />
+      <RadioButton fx:id="rbLord" layoutX="30.0" layoutY="48.0" mnemonicParsing="false" onAction="#LordSithButton" text="LordSith">
+         <toggleGroup>
+            <ToggleGroup fx:id="SithGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbAprendiz" layoutX="30.0" layoutY="82.0" mnemonicParsing="false" onAction="#AprendizButton" text="AprendizSith" toggleGroup="$SithGroup" />
+      <TextField fx:id="tfFortaleza" layoutX="176.0" layoutY="153.0" promptText="Fortalezas" />
+      <ListView fx:id="lvVistaLordSith" layoutX="9.0" layoutY="277.0" prefHeight="315.0" prefWidth="433.0" />
+      <ListView fx:id="lvVistaAprendizSith" layoutX="457.0" layoutY="276.0" prefHeight="315.0" prefWidth="433.0" />
+      <Button fx:id="btInsertar" layoutX="20.0" layoutY="190.0" mnemonicParsing="false" onAction="#Insertar" text="Insertar" />
+      <Button fx:id="btBorrarLord" layoutX="20.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarLord" text="Borrar Lord" />
+      <Button fx:id="btBorrarTodosLord" layoutX="116.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarTodosLord" text="Borrar todos" />
+      <Button fx:id="btBorrarAprendiz" layoutX="457.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarAprendiz" text="Borrar Lord" />
+      <Button fx:id="btBorrarTodosAprendiz" layoutX="553.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarTodosAprendiz" text="Borrar todos" />
+   </children>
+</AnchorPane>
