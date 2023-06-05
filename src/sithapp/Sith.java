@@ -1,4 +1,3 @@
-
 package sithapp;
 
 import java.util.Objects;
@@ -7,32 +6,35 @@ import java.util.Objects;
  *
  * @author Patri
  */
-public abstract class Sith {
-    private String nombre;
-    private int nivelMidi;
-    private int edad;
-    private Fortalezas forta;
+public abstract class Sith implements SableLaser {
+
+    protected String nombre;
+    protected int nivelMidi;
+    protected int edad;
+    protected Fortalezas forta;
 
     //constructor por defecto para no hacer ExceptionNullPointer
-    public Sith() {    
+    public Sith() {
         this.nombre = "";
         this.nivelMidi = 0;
         this.edad = 0;
         this.forta = new Fortalezas();
     }
+
     //constructor con parámetros
     /*
      * @param nombre
      * @param nivelMidi
      * @param edad
      * @param forta
-    */
+     */
     public Sith(String nombre, int nivelMidi, int edad, Fortalezas forta) {
         this.nombre = nombre;
         this.nivelMidi = nivelMidi;
         this.edad = edad;
         this.forta = forta;
     }
+
     //Getters and Setters
     public Fortalezas getForta() {
         return forta;
@@ -65,6 +67,7 @@ public abstract class Sith {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
     //HasCode para comparaciones
     @Override
     public int hashCode() {
@@ -75,6 +78,7 @@ public abstract class Sith {
         hash = 89 * hash + Objects.hashCode(this.forta);
         return hash;
     }
+
     //método equals para comparar objetos
     @Override
     public boolean equals(Object obj) {
@@ -99,12 +103,16 @@ public abstract class Sith {
         }
         return Objects.equals(this.forta, other.forta);
     }
+
     //método toString
     @Override
     public String toString() {
         return "Sith: " + "nombre=" + nombre + ", nivelMidi=" + nivelMidi + ", edad=" + edad + ", forta=" + forta + '}';
     }
-    
-    
-    
+
+    @Override
+    public void ColorSableLaser() {
+        System.out.println("El color del sable láser es ROJO!");
+    }
+
 }

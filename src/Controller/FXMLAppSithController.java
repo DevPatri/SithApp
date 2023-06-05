@@ -72,6 +72,10 @@ public class FXMLAppSithController implements Initializable {
     private Button btBorrarAprendiz;
     @FXML
     private Button btBorrarTodosAprendiz;
+    @FXML
+    private TextField tfAnioCaida;
+    @FXML
+    private TextField tfAnioAscenso;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -88,17 +92,19 @@ public class FXMLAppSithController implements Initializable {
         if (chbMaestro.isSelected()) {
             chbAlpha.setDisable(false);
             tfAprendiz.setDisable(false);
+            tfAnioCaida.setDisable(false);
         } else {
             chbAlpha.setSelected(false);
             chbAlpha.setDisable(true);
             tfAprendiz.setDisable(true);
+            tfAnioCaida.setDisable(true);
         }
     }
 
     @FXML
     private void LordSithButton(ActionEvent event) {
         pLord.setDisable(false);
-        pAprendiz.setDisable(true);
+//        pAprendiz.setDisable(true);
 
     }
 
@@ -120,14 +126,14 @@ public class FXMLAppSithController implements Initializable {
         for (int i = 0; i < OLAprendizSith.size(); i++) {
 
             if (OLAprendizSith.get(i).getNombre().equalsIgnoreCase(tfAprendiz.getText().trim())) {
-                LordSith lord = new LordSith(chbMaestro.isSelected(), chbAlpha.isSelected(), OLAprendizSith.get(i), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a);
+                LordSith lord = new LordSith(chbMaestro.isSelected(), chbAlpha.isSelected(),Integer.parseInt(tfAnioAscenso.getText()), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a, OLAprendizSith.get(i));
                 lvVistaLordSith.getItems().add(lord);
                 return;
             }
         }
 //        AprendizSith aprendiz = new AprendizSith();
 //        aprendiz.setNombre(tfAprendiz.getText().trim());
-        LordSith lord = new LordSith(chbMaestro.isSelected(), chbAlpha.isSelected(), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a);
+        LordSith lord = new LordSith(chbMaestro.isSelected(), chbAlpha.isSelected(), Integer.parseInt(tfAnioAscenso.getText()), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a);
         lvVistaLordSith.getItems().add(lord);
     }
 
@@ -136,14 +142,14 @@ public class FXMLAppSithController implements Initializable {
 
         for (int i = 0; i < OLLordSith.size(); i++) {
             if (OLLordSith.get(i).getNombre().equalsIgnoreCase(tfMaestro.getText().trim())) {
-                AprendizSith aprendiz = new AprendizSith(OLLordSith.get(i), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a);
+                AprendizSith aprendiz = new AprendizSith(OLLordSith.get(i), tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a,Integer.parseInt(tfAnioCaida.getText()));
                 lvVistaAprendizSith.getItems().add(aprendiz);
                 return;
             }
         }
 //        LordSith lord = new LordSith();
 //        lord.setNombre(tfMaestro.getText().trim());
-        AprendizSith aprendiz = new AprendizSith( tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a);
+        AprendizSith aprendiz = new AprendizSith( tfNombre.getText(), Integer.parseInt(tfNivelMidi.getText()), Integer.parseInt(tfEdad.getText()), a, Integer.parseInt(tfAnioCaida.getText()));
         lvVistaAprendizSith.getItems().add(aprendiz);
 
     }

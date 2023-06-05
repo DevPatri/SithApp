@@ -8,6 +8,7 @@ import java.util.Objects;
  * @author Patri
  */
 public class AprendizSith extends Sith {
+    private int anioLadoOscuro;
     private LordSith maestro;
 
     public AprendizSith() {
@@ -15,8 +16,9 @@ public class AprendizSith extends Sith {
         this.maestro = new LordSith();
     }
 
-    public AprendizSith(String nombre, int nivelMidi, int edad, Fortalezas forta) {
+    public AprendizSith(String nombre, int nivelMidi, int edad, Fortalezas forta, int anioLadoOscuro) {
         super(nombre, nivelMidi, edad, forta);
+        this.anioLadoOscuro = anioLadoOscuro;
     }
         
     /*
@@ -26,9 +28,15 @@ public class AprendizSith extends Sith {
      * @param edad
      * @param forta
     */
-    public AprendizSith(LordSith maestro, String nombre, int nivelMidi, int edad, Fortalezas forta) {
+    public AprendizSith(LordSith maestro, String nombre, int nivelMidi, int edad, Fortalezas forta,  int anioLadoOscuro) {
         super(nombre, nivelMidi, edad, forta);
         this.maestro = maestro;
+        this.anioLadoOscuro = anioLadoOscuro;
+    }
+    public AprendizSith(AprendizSith p){
+        super(p.nombre,p.nivelMidi,p.edad,p.forta);
+        this.maestro = p.maestro;
+        this.anioLadoOscuro = p.anioLadoOscuro;
     }
 
     public LordSith getMaestro() {
@@ -38,11 +46,20 @@ public class AprendizSith extends Sith {
     public void setMaestro(LordSith maestro) {
         this.maestro = maestro;
     }
+    
+    public int getAnioLadoOscuro() {
+        return anioLadoOscuro;
+    }
+
+    public void setAnioLadoOscuro(int anioLadoOscuro) {
+        this.anioLadoOscuro = anioLadoOscuro;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.maestro);
+        int hash = 3;
+        hash = 71 * hash + this.anioLadoOscuro;
+        hash = 71 * hash + Objects.hashCode(this.maestro);
         return hash;
     }
 
@@ -58,13 +75,21 @@ public class AprendizSith extends Sith {
             return false;
         }
         final AprendizSith other = (AprendizSith) obj;
+        if (this.anioLadoOscuro != other.anioLadoOscuro) {
+            return false;
+        }
         return Objects.equals(this.maestro, other.maestro);
     }
 
     @Override
     public String toString() {
-        return "AprendizSith: " + super.toString() + "maestro = " + maestro.getNombre() + '}';
+        return "AprendizSith{" + "anioLadoOscuro=" + anioLadoOscuro + ", maestro=" + maestro + '}';
     }
+
+    
+    
+
+    
     
     
     

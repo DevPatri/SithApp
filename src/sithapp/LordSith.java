@@ -1,4 +1,3 @@
-
 package sithapp;
 
 import java.util.ArrayList;
@@ -8,56 +7,51 @@ import java.util.Objects;
  *
  * @author Patri
  */
-public class LordSith extends Sith implements SableLaser{
-    
+public class LordSith extends Sith {
+
     private boolean maestroSith;
     private boolean alphaSith;
-    
+    private int anioAscensoLord;
     private ArrayList<AprendizSith> aprendices = new ArrayList<>();
-    
+
     /*
      * 
-    */
-    public LordSith(){
-        super();
-        this.maestroSith = false;
-        this.alphaSith = false;
-        
+     */
+    public LordSith() {
     }
-    
+
     /**
      * @param maestroSith
      * @param alphaSith
+     * @param anioAscensoLord
      * @param aprendices
      * @param nombre
      * @param nivelMidi
      * @param edad
      * @param forta
-    */
-    
-    public LordSith(boolean maestroSith, boolean alphaSith, String nombre, int nivelMidi, int edad, Fortalezas forta) {
+     */
+    public LordSith(boolean maestroSith, boolean alphaSith, int anioAscensoLord, String nombre, int nivelMidi, int edad, Fortalezas forta) {
         super(nombre, nivelMidi, edad, forta);
         this.maestroSith = maestroSith;
         this.alphaSith = alphaSith;
+        this.anioAscensoLord = anioAscensoLord;
     }
 
-    public LordSith(boolean maestroSith, boolean alphaSith, AprendizSith aprendiz, String nombre, int nivelMidi, int edad, Fortalezas forta) {
+    public LordSith(boolean maestroSith, boolean alphaSith, int anioAscensoLord, String nombre, int nivelMidi, int edad, Fortalezas forta, AprendizSith aprendiz) {
         super(nombre, nivelMidi, edad, forta);
         this.maestroSith = maestroSith;
         this.alphaSith = alphaSith;
-        //modifico para crear un nuevo array y que no lo pida por parámetro o lo dejo así??
-        this.aprendices.add(aprendiz);      
+        this.anioAscensoLord = anioAscensoLord;
+        this.aprendices.add(aprendiz);
     }
-    
-    public LordSith(LordSith p){
+
+    public LordSith(LordSith p) {
         LordSith a = new LordSith(p);
     }
-    
+
     // interface implementada para enseñar el color del sable.         
-    @Override
-    public void ColorSableLaser() {
-        System.out.println("El color del sable láser es ROJO!");
-    }
+
+
     //Getters and Setters
     public boolean isMaestroSith() {
         return maestroSith;
@@ -83,12 +77,21 @@ public class LordSith extends Sith implements SableLaser{
         this.aprendices = aprendices;
     }
 
+    public int getAnioAscensoLord() {
+        return anioAscensoLord;
+    }
+
+    public void setAnioAscensoLord(int anioAscensoLord) {
+        this.anioAscensoLord = anioAscensoLord;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + (this.maestroSith ? 1 : 0);
-        hash = 67 * hash + (this.alphaSith ? 1 : 0);
-        hash = 67 * hash + Objects.hashCode(this.aprendices);
+        int hash = 7;
+        hash = 17 * hash + (this.maestroSith ? 1 : 0);
+        hash = 17 * hash + (this.alphaSith ? 1 : 0);
+        hash = 17 * hash + this.anioAscensoLord;
+        hash = 17 * hash + Objects.hashCode(this.aprendices);
         return hash;
     }
 
@@ -110,14 +113,22 @@ public class LordSith extends Sith implements SableLaser{
         if (this.alphaSith != other.alphaSith) {
             return false;
         }
+        if (this.anioAscensoLord != other.anioAscensoLord) {
+            return false;
+        }
         return Objects.equals(this.aprendices, other.aprendices);
     }
 
     @Override
     public String toString() {
-        return "LordSith: " + super.toString() + "maestroSith=" + maestroSith + ", alphaSith=" + alphaSith + ", aprendices=" + aprendices.toString() + '}';
+        return "LordSith: " + super.toString() + "maestroSith: " + maestroSith + ", alphaSith: " + alphaSith + ", anioAscensoLord: " + anioAscensoLord + ", aprendices: " + aprendices + '}';
     }
     
+    public void agregarAprendiz(AprendizSith aprendiz){
+        
+    }
     
-    
+    public void eliminarAprendiz(AprendizSith aprendiz){
+        
+    }
 }

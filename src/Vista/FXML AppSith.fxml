@@ -10,21 +10,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controller.FXMLAppSithController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLAppSithController">
    <children>
       <Pane fx:id="pLord" layoutX="369.0" layoutY="14.0" prefHeight="182.0" prefWidth="252.0">
          <children>
             <Text layoutX="23.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LordSith" />
-            <CheckBox fx:id="chbMaestro" layoutX="23.0" layoutY="40.0" mnemonicParsing="false" onAction="#MaestroOnAction" text="MaestroLord" />
-            <CheckBox fx:id="chbAlpha" layoutX="23.0" layoutY="132.0" mnemonicParsing="false" text="AlphaLord" />
-            <TextField fx:id="tfAprendiz" layoutX="23.0" layoutY="76.0" promptText="Aprendiz" />
+            <CheckBox fx:id="chbMaestro" layoutX="23.0" layoutY="70.0" mnemonicParsing="false" onAction="#MaestroOnAction" text="MaestroLord" />
+            <CheckBox fx:id="chbAlpha" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" text="AlphaLord" />
+            <TextField fx:id="tfAprendiz" layoutX="23.0" layoutY="106.0" promptText="Aprendiz" />
+            <TextField fx:id="tfAnioAscenso" layoutX="23.0" layoutY="37.0" promptText="Año ascenso" />
          </children>
       </Pane>
       <Pane fx:id="pAprendiz" layoutX="634.0" layoutY="14.0" prefHeight="182.0" prefWidth="252.0">
          <children>
             <Text layoutX="9.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AprendizSith" />
             <TextField fx:id="tfMaestro" layoutX="14.0" layoutY="76.0" promptText="Maestro" />
+            <TextField fx:id="tfAnioCaida" layoutX="14.0" layoutY="40.0" promptText="Año Caida" />
          </children>
       </Pane>
       <TextField fx:id="tfNombre" layoutX="176.0" layoutY="37.0" promptText="nombre" />
