@@ -43,7 +43,7 @@
       <Button fx:id="btInsertar" layoutX="20.0" layoutY="190.0" mnemonicParsing="false" onAction="#Insertar" text="Insertar" />
       <Button fx:id="btBorrarLord" layoutX="20.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarLord" text="Borrar Lord" />
       <Button fx:id="btBorrarTodosLord" layoutX="116.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarTodosLord" text="Borrar todos" />
-      <Button fx:id="btBorrarAprendiz" layoutX="457.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarAprendiz" text="Borrar Lord" />
-      <Button fx:id="btBorrarTodosAprendiz" layoutX="553.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarTodosAprendiz" text="Borrar todos" />
+      <Button fx:id="btBorrarAprendiz" layoutX="457.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarAprendiz" text="Borrar Aprendiz" />
+      <Button fx:id="btBorrarTodosAprendiz" layoutX="577.0" layoutY="239.0" mnemonicParsing="false" onAction="#BorrarTodosAprendiz" text="Borrar todos" />
    </children>
 </AnchorPane>

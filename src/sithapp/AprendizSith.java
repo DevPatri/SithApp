@@ -19,6 +19,7 @@ public class AprendizSith extends Sith {
     public AprendizSith(String nombre, int nivelMidi, int edad, Fortalezas forta, int anioLadoOscuro) {
         super(nombre, nivelMidi, edad, forta);
         this.anioLadoOscuro = anioLadoOscuro;
+        this.maestro = new LordSith();
     }
         
     /*
@@ -28,11 +29,7 @@ public class AprendizSith extends Sith {
      * @param edad
      * @param forta
     */
-    public AprendizSith(LordSith maestro, String nombre, int nivelMidi, int edad, Fortalezas forta,  int anioLadoOscuro) {
-        super(nombre, nivelMidi, edad, forta);
-        this.maestro = maestro;
-        this.anioLadoOscuro = anioLadoOscuro;
-    }
+ 
     public AprendizSith(AprendizSith p){
         super(p.nombre,p.nivelMidi,p.edad,p.forta);
         this.maestro = p.maestro;
@@ -83,10 +80,19 @@ public class AprendizSith extends Sith {
 
     @Override
     public String toString() {
-        return "AprendizSith{" + "anioLadoOscuro=" + anioLadoOscuro + ", maestro=" + maestro + '}';
+        return "AprendizSith: "+ super.toString() + "año lado oscuro: " + anioLadoOscuro + ", maestro: " + mostrarMaestro() + '}';
     }
 
-    
+    public String mostrarMaestro(){
+        String maestrillo;
+        if (!maestro.getNombre().isEmpty()) {
+            maestrillo = maestro.getNombre();
+        }else{
+            maestrillo = "sin maestro";
+        }
+        return maestrillo;
+        
+    }
     
 
     

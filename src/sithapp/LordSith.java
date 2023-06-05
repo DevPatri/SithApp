@@ -2,6 +2,7 @@ package sithapp;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -37,21 +38,19 @@ public class LordSith extends Sith {
         this.anioAscensoLord = anioAscensoLord;
     }
 
-    public LordSith(boolean maestroSith, boolean alphaSith, int anioAscensoLord, String nombre, int nivelMidi, int edad, Fortalezas forta, AprendizSith aprendiz) {
-        super(nombre, nivelMidi, edad, forta);
-        this.maestroSith = maestroSith;
-        this.alphaSith = alphaSith;
-        this.anioAscensoLord = anioAscensoLord;
-        this.aprendices.add(aprendiz);
-    }
+//    public LordSith(boolean maestroSith, boolean alphaSith, int anioAscensoLord, String nombre, int nivelMidi, int edad, Fortalezas forta, AprendizSith aprendiz) {
+//        super(nombre, nivelMidi, edad, forta);
+//        this.maestroSith = maestroSith;
+//        this.alphaSith = alphaSith;
+//        this.anioAscensoLord = anioAscensoLord;
+//        this.aprendices.add(aprendiz);
+//    }
 
     public LordSith(LordSith p) {
         LordSith a = new LordSith(p);
     }
 
     // interface implementada para enseñar el color del sable.         
-
-
     //Getters and Setters
     public boolean isMaestroSith() {
         return maestroSith;
@@ -121,14 +120,30 @@ public class LordSith extends Sith {
 
     @Override
     public String toString() {
-        return "LordSith: " + super.toString() + "maestroSith: " + maestroSith + ", alphaSith: " + alphaSith + ", anioAscensoLord: " + anioAscensoLord + ", aprendices: " + aprendices + '}';
+        return "LordSith: " + super.toString() + "maestroSith: " + maestroSith + ", alphaSith: " + alphaSith + ", anioAscensoLord: " + anioAscensoLord + ", aprendices: " + mostrarAprendices() + '}';
     }
-    
-    public void agregarAprendiz(AprendizSith aprendiz){
-        
+
+    public void agregarAprendiz(AprendizSith aprendiz) {
+        if (aprendices.size() < 3) {
+            aprendices.add(aprendiz);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setContentText("No puedes entrenar mas Aprendices Sith.");
+            alert.showAndWait();
+        }
     }
-    
-    public void eliminarAprendiz(AprendizSith aprendiz){
-        
+
+    public void eliminarAprendiz(AprendizSith aprendiz) {
+        aprendices.remove(aprendiz);
+    }
+    public String mostrarAprendices(){
+        String SAprendices = "";
+        for(AprendizSith aprendiz: aprendices){
+           
+           SAprendices += aprendiz.getNombre();
+           SAprendices += " ";
+        }
+        return SAprendices;
     }
 }

@@ -57,7 +57,7 @@ public class Fortalezas {
 
     @Override
     public String toString() {
-        return "Fortalezas: " + "nombre=" + nombre + '}';
+        return "nombre Fortaleza: " + nombre + ", ";
     }
     
     

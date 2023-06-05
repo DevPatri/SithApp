@@ -107,7 +107,7 @@ public abstract class Sith implements SableLaser {
     //método toString
     @Override
     public String toString() {
-        return "Sith: " + "nombre=" + nombre + ", nivelMidi=" + nivelMidi + ", edad=" + edad + ", forta=" + forta + '}';
+        return "nombre: " + nombre + ", nivelMidi: " + nivelMidi + ", edad: " + edad + ", " + forta;
     }
 
     @Override
